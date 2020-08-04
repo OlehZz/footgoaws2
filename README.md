@@ -1,0 +1,1 @@
+footgo aws v2
