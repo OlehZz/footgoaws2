@@ -26,3 +26,7 @@ module "vpc-main" {
   source     = "./modules/network"
 }
 
+module "security-group" {
+  source = "./modules/security_group"
+  vpc_id = "${module.vpc-main.vpc_id}"
+}
