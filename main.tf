@@ -22,6 +22,8 @@
   }
 }*/
 
+data "aws_availability_zones" "az" {}
+
 module "vpc-main" {
   source     = "./modules/network"
 }
@@ -34,4 +36,6 @@ module "resources" {
     source = "./modules/resources"
     public_subnet_id ="${module.vpc-main.dev_public_subnet_id}"
     private_subnet_ids = "${module.vpc-main.dev_private_subnet_ids}"
+    webserver_sg = "${module.security-group.webserver_sg}"
+    mysql_sg = "${module.security-group.mysql_sg}"
 }

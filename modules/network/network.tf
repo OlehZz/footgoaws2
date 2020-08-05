@@ -1,3 +1,4 @@
+data "aws_availability_zones" "az" {}
 #vpc
 
 resource "aws_vpc" "vpc-main" {
@@ -23,7 +24,7 @@ resource "aws_subnet" "private-subnets" {
     count = length(var.private_subnet_cidrs)
     cidr_block = element(var.private_subnet_cidrs, count.index)
     map_public_ip_on_launch = "false"
-    availability_zone = "us-east-1a" 
+    availability_zone = data.aws_availability_zones.az.names[count.index]
     tags = {
         Name = "${var.env}-private-${count.index + 1}"
     }
