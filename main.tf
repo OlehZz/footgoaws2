@@ -30,3 +30,8 @@ module "security-group" {
   source = "./modules/security_group"
   vpc_id = "${module.vpc-main.vpc_id}"
 }
+module "resources" {
+    source = "./modules/resources"
+    public_subnet_id ="${module.vpc-main.dev_public_subnet_id}"
+    private_subnet_ids = "${module.vpc-main.dev_private_subnet_ids}"
+}
