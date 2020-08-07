@@ -30,6 +30,16 @@ resource "aws_subnet" "private-subnets" {
     }
 }
 
+#db subnet group
+resource "aws_db_subnet_group" "rds_mysql_private_subnet" {
+    name       = "rds_mysql_private_subnets"
+    subnet_ids = aws_subnet.private-subnets[*].id
+
+    tags = {
+    Name = "My DB subnet group"
+  }
+}
+
 #Internet GW
 
 resource "aws_internet_gateway" "main-gw" {

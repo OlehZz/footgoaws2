@@ -14,6 +14,6 @@ output "dev_private_subnet_ids" {
   value = aws_subnet.private-subnets[*].id
 }
 
-#output "az" {
-#  value = data.aws_awailability_zones.az.names[*]
-#}
+output "db_subnet_group_name" {
+  value = aws_db_subnet_group.rds_mysql_private_subnet.name
+}
