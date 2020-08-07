@@ -4,9 +4,9 @@ provider "aws" {
   region     = var.AWS_REGION
 }
 terraform {
-    backend "s3" {
-        bucket = "footgo-project-devops"
-        key = "dev/footgo2aws/terraform.tfstate"
-        region = "us-east-1"
-    }
+  backend "s3" {
+    bucket = "footgo-project-devops"
+    key    = "dev/footgo2aws/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
