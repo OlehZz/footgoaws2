@@ -21,6 +21,11 @@
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "packer-example {{timestamp}}"
-    }
-  ]
+    }],
+  "provisioners": [{
+      "type": "shell",
+      "scripts": ["/tmp/install_software.sh"],
+      "execute_command": "sudo ",
+      "pause_before":"30s"
+}]
 }
