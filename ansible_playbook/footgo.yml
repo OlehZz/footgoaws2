@@ -1,6 +1,6 @@
 ---
 - hosts: tag_Name_Packer_Builder
-  #become: yes
+  become: yes
 
   tasks:
     - name: install git
@@ -30,5 +30,5 @@
         MAVEN_HOME: /usr/share/maven
         JAVA_HOME: /usr/lib/jvm/java-1.11.0-openjdk-amd64
 
-    #- name: run site
-    #  shell: ( ( nohup java -jar /home/ubuntu/footgo/target/ROOT.war </dev/null 1>/dev/null 2>&1 ) &)
+    - name: run site
+      shell: ( ( nohup java -jar /home/ubuntu/footgo/target/ROOT.war </dev/null 1>/dev/null 2>&1 ) &)
