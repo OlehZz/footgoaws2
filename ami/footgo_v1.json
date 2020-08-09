@@ -22,7 +22,7 @@
       "ssh_username": "ubuntu",
       "ami_name": "packer-example {{timestamp}}",
       "ssh_keypair_name": "MyEC2 study1",
-      "ssh_private_key_file": "/home/vagrant/MyEC2study1.pem"
+      "ssh_private_key_file": "/home/jenkins/MyEC2study1.pem"
     }],
   "provisioners": [{
       "type": "shell-local",
@@ -33,7 +33,7 @@
       "type": "ansible", 
       "playbook_file": "./ansible_playbook/footgo.yml",
       "inventory_file": "/etc/ansible/ec2.py",
-      "ssh_authorized_key_file": "/home/vagrant/MyEC2study1.pem",
+      "ssh_authorized_key_file": "/home/jenkins/MyEC2study1.pem",
       "pause_before": "5s"
   }]
 }
