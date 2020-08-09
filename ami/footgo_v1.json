@@ -26,9 +26,10 @@
     }],
   "provisioners": [{
     "type": "ansible",
+    "user": "ubuntu",
     "playbook_file": "./ansible_playbook/footgo.yml",
     "inventory_file": "/etc/ansible/ec2.py",
     "ssh_authorized_key_file": "/home/jenkins/MyEC2study1.pem",
-    "pause_before": "5s"
+    "pause_before": "25s"
   }]
 }
