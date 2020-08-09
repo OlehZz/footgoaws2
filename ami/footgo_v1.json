@@ -25,11 +25,8 @@
       "ssh_private_key_file": "/home/jenkins/MyEC2study1.pem"
     }],
   "provisioners": [{
-    "type": "ansible",
-    "user": "ubuntu",
-    "playbook_file": "./ansible_playbook/footgo.yml",
-    "inventory_file": "/etc/ansible/ec2.py",
-    "ssh_authorized_key_file": "/home/jenkins/MyEC2study1.pem",
-    "pause_before": "25s"
+    "type": "shell-local",
+    "inline": ["ansible-playbook -i /etc/ansible/ec2.py -u ubuntu --private-key=/home/ubuntu/MyEC2study1.pem ./ansible_playbook/footgo.yml"],
+    "pause_before": "20s"
   }]
 }
