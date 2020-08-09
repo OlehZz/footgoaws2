@@ -1,6 +1,6 @@
 ---
-- hosts: ip-10-0-1-203.ec2.internal
-  #  become: yes
+- hosts: tag_Name_Packer_Builder
+  become: yes
 
   tasks:
     - name: install git
@@ -21,7 +21,7 @@
     - name: setup db access
       script: script.sh
     - name: compile footgo app
-      shell: sudo mvn clean package
+      shell: mvn clean package
       args:
         chdir: /home/ubuntu/footgo
         executable: /bin/bash
@@ -31,4 +31,4 @@
         JAVA_HOME: /usr/lib/jvm/java-1.11.0-openjdk-amd64
 
     #- name: run site
-    # shell: ( ( nohup java -jar /home/ubuntu/footgo/target/ROOT.war </dev/null 1>/dev/null 2>&1 ) &)
+    #  shell: ( ( nohup java -jar /home/ubuntu/footgo/target/ROOT.war </dev/null 1>/dev/null 2>&1 ) &)

@@ -12,20 +12,23 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*",
+          "name": "ubuntu/images/*ubuntu-bionic-18.04-amd64-server-*",
           "root-device-type": "ebs"
         },
-        "owners": ["622371100744"],
+        "owners": ["099720109477"],
         "most_recent": true
       },
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "packer-example {{timestamp}}"
     }],
-  "provisioners": [
-    {
-      "type": "ansible",
-      "playbook_file": "./aws/footgo.yml"
-
-    }]
+  "provisioners": [{
+      "type": "shell-local",
+      "inline": ["ansible -i ec2.py tag_Name_Packer_Builder --list-hosts"],
+      "pause_before": "30s"
+  },
+  {
+      "type": "ansible", 
+      "playbook_file": "./ansible_playbook/footgo.yml"
+  }]
 }
