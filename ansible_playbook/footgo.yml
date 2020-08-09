@@ -13,6 +13,7 @@
       apt:
         name: maven
         state: latest
+        
     - name: setup files
       git:
         repo: 'https://github.com/WiseHands/FootGo.git'
@@ -20,13 +21,21 @@
         dest: /home/ubuntu/footgo
     - name: setup db access
       script: script.sh
+
+    - name: Set MAVEN_OPTS
+      lineinfile:
+        dest: /etc/environment
+        state: present
+        regexp: '^MAVEN_OPTS'
+        line: 'MAVEN_OPTS=-Xmx1024m'
+
     - name: compile footgo app
       shell: sudo mvn clean package
       args:
         chdir: /home/ubuntu/footgo
-        executable: /bin/bash
+        #executable: /bin/bash
       environment:
-        MAVEN_OPTS: "-Xmx1024m"
+        MAVEN_OPTS: -Xmx1024m
         MAVEN_HOME: /usr/share/maven
         JAVA_HOME: /usr/lib/jvm/java-1.11.0-openjdk-amd64
 
