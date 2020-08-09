@@ -31,7 +31,7 @@
   },
     {
       "type": "shell-local",
-      "inline": ["ansible-playbook -i /etc/ansible/ec2.py ./ansible_playbook/footgo.yml"],
+      "inline": ["ansible-playbook -i /etc/ansible/ec2.py -u ec2-user --private-key=/home/jenkins/MyEC2study1.pem ./ansible_playbook/footgo.yml "],
       "pause_before": "10s"
     }]
 }
