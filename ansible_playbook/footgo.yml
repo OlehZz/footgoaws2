@@ -1,6 +1,6 @@
 ---
 - hosts: tag_Name_Packer_Builder
-  become: yes
+  #become: yes
 
   tasks:
     - name: install git
@@ -21,7 +21,7 @@
     - name: setup db access
       script: script.sh
     - name: compile footgo app
-      shell: mvn clean package
+      shell: sudo mvn clean package
       args:
         chdir: /home/ubuntu/footgo
         executable: /bin/bash
