@@ -21,6 +21,7 @@
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "packer-example {{timestamp}}",
+      "ssh_keypair_name": "MyEC2 study1",
       "ssh_private_key_file": "/home/vagrant/aws_key.pem"
     }],
   "provisioners": [{
