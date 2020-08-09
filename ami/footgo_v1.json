@@ -30,7 +30,7 @@
   {
       "type": "ansible", 
       "playbook_file": "./ansible_playbook/footgo.yml",
-      "inventory_file": "/etc/ansible/ec2.py"
+      "inventory_file": "/etc/ansible/ec2.py",
       "pause_before": "10s"
   }]
 }
