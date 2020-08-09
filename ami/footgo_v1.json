@@ -27,11 +27,11 @@
   "provisioners": [{
       "type": "shell-local",
       "inline": ["ansible -i /etc/ansible/ec2.py tag_Name_Packer_Builder --list-hosts"],
-      "pause_before": "10s"
+      "pause_before": "5s"
   },
     {
       "type": "shell-local",
-      "inline": ["sudo ansible-playbook -i /etc/ansible/ec2.py -u ec2-user --private-key=/home/jenkins/MyEC2study1.pem ./ansible_playbook/footgo.yml "],
-      "pause_before": "10s"
+      "inline": ["ansible-playbook -i /etc/ansible/ec2.py -u ec2-user --private-key=/home/jenkins/MyEC2study1.pem ./ansible_playbook/footgo.yml "],
+      "pause_before": "240s"
     }]
 }
