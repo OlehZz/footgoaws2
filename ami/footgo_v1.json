@@ -26,6 +26,6 @@
     }],
   "provisioners": [{
       "type": "shell-local",
-      "inline": ["ansible-playbook -i /etc/ansible/ec2.py -u ubuntu --private-key=/home/ubuntu/MyEC2study1.pem ./ansible_playbook/footgo.yml"],
+      "inline": ["ansible-playbook -vvvv -i /etc/ansible/ec2.py -u ubuntu --private-key=/home/ubuntu/MyEC2study1.pem ./ansible_playbook/footgo.yml"],
   }]
 }
