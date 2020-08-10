@@ -9,6 +9,10 @@
         update_cache: yes
         state: latest
 
+    - name: install tomcat8
+      apt:
+        name: tomcat8
+
     - name: install maven
       apt:
         name: maven
@@ -30,7 +34,7 @@
         line: 'MAVEN_OPTS=-Xmx1024m'
 
     - name: compile footgo app
-      shell: sudo mvn clean package
+      shell: mvn clean package
       args:
         chdir: /home/ubuntu/footgo
         #executable: /bin/bash
@@ -40,4 +44,4 @@
         JAVA_HOME: /usr/lib/jvm/java-1.11.0-openjdk-amd64
 
     - name: run site
-      shell: ( ( nohup java -jar /home/ubuntu/footgo/target/ROOT.war </dev/null 1>/dev/null 2>&1 ) &)
+      shell: cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
