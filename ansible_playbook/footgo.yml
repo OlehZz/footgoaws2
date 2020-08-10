@@ -44,4 +44,8 @@
         JAVA_HOME: /usr/lib/jvm/java-1.11.0-openjdk-amd64
 
     - name: run site
-      shell: cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
+      shell: |
+        cd /var/lib/tomcat8/
+        cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
+        chown -R tomcat8:tomcat8 webapps
+      
