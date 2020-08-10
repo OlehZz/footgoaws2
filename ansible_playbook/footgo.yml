@@ -37,7 +37,6 @@
       shell: mvn clean package
       args:
         chdir: /home/ubuntu/footgo
-        #executable: /bin/bash
       environment:
         MAVEN_OPTS: -Xmx1024m
         MAVEN_HOME: /usr/share/maven
@@ -52,5 +51,4 @@
     - name: wait for 60 seconds for deploy footgo
       wait_for:
         timeout: 60
-      delegate_to: localhost
       
