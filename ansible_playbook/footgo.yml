@@ -46,6 +46,11 @@
     - name: run site
       shell: |
         cd /var/lib/tomcat8/
-        cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
         chown -R tomcat8:tomcat8 webapps
+        cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
+    
+    - name: wait for 60 seconds for deploy footgo
+      wait_for:
+        timeout: 60
+      delegate_to: localhost
       

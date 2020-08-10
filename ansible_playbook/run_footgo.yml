@@ -1,0 +1,10 @@
+---
+- hosts: tag_Name_Packer_Builder
+  become: yes
+
+  tasks:
+    - name: run site
+      shell: |
+        cd /var/lib/tomcat8/
+        chown -R tomcat8:tomcat8 webapps
+        cp /home/ubuntu/footgo/target/ROOT.war /var/lib/tomcat8/webapps/
