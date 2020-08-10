@@ -7,8 +7,8 @@ output "vpc_cidr" {
   value = module.vpc-main.vpc_cidr
 }
 
-output "dev_public_subnet_id" {
-  value = module.vpc-main.dev_public_subnet_id
+output "dev_elb_dns_name" {
+  value = module.asg_elb.elb_dns_name
 }
 
 output "dev_private_subnet_ids" {

@@ -33,6 +33,7 @@ resource "aws_autoscaling_group" "webservers" {
   ]
 }
 
+#Create ELB
 resource "aws_elb" "webserver" {
   name            = "webserver-ELB"
   security_groups = [var.webserver_sg]
