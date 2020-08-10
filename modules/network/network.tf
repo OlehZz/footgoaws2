@@ -40,10 +40,6 @@ resource "aws_db_subnet_group" "rds_mysql_private_subnet" {
   }
 }
 
-#eip for asg
-resource "aws_eip" "asg" {
-    vpc      = true
-
 #Internet GW
 
 resource "aws_internet_gateway" "main-gw" {
