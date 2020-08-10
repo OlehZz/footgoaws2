@@ -14,4 +14,3 @@ output "dev_public_subnet_id" {
 output "dev_private_subnet_ids" {
   value = module.vpc-main.dev_private_subnet_ids
 }
-
